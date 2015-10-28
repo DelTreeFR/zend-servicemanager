@@ -442,7 +442,7 @@ class ServiceManager implements ServiceLocatorInterface, ContainerInterface
     {
         $cName = $this->canonicalizeName($name);
 
-        if (!$this->has($name)) {
+        if (!$this->has([$cName, $name])) {
             throw new Exception\ServiceNotFoundException(sprintf(
                 '%s: A service by the name "%s" was not found',
                 get_class($this) . '::' . __FUNCTION__,
