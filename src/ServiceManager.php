@@ -391,7 +391,7 @@ class ServiceManager implements ServiceLocatorInterface, ContainerInterface
     {
         $cName = $this->canonicalizeName($name);
 
-        if ($this->has($cName, false)) {
+        if ($this->has([$cName, $name], false)) {
             if ($this->allowOverride === false) {
                 throw new Exception\InvalidServiceNameException(sprintf(
                     '%s: A service by the name "%s" or alias already exists and cannot be overridden, please use an alternate name.',
